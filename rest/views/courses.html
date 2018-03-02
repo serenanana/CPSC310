@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UBC Navigator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/styles.css">
+
+</head>
+<body>
+<!--no need to change navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-light bg-inverse navbar-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">UBC Explorer</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                    <a class= "nav-link" href="/views/courses.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Courses Navigator<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/views/rooms.html">Rooms Navigator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/views/scheduler.html">Courses Room Scheduler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/views/space.html">Novel Feature</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<div class = "jumbotron">
+    <label class="custom-file">
+
+        <input type="file" name = "fileUpload" id="fileUpload"/>
+
+        <span class="custom-file-control"></span>
+    </label>
+    <button id = "btnUpload" class ="btn btn-success">Upload</button>
+    <br>
+    <label for="extraFilter">Options for Multi Field Search:</label>
+    <select class="custom-select" id = "extraFilter">
+        <option selected  value="AND">AND</option>
+        <option value="OR">OR</option>
+    </select>
+
+    <br>
+
+    <label for="section">Section Size:</label>
+    <input type="string" class="form-control formarray" id="section" placeholder="e.g. 300">
+    <label for="department">Department:</label>
+    <input type="string" class="form-control formarray" id="department" placeholder="e.g. cpsc">
+    <label for="coursenum">Course Number:</label>
+    <input type="string" class="form-control formarray" id="coursenum" placeholder="e.g. 300">
+    <label for="instructor">Instructor:</label>
+    <input type="string" class="form-control formarray" id="instructor" placeholder="e.g. Elisa">
+    <label for="title">Title:</label>
+    <input type="string" class="form-control formarray" id="title" placeholder="e.g. comptn, progrmng">
+
+    <label for="column">Column (can be one string or long string split by ','):</label>
+    <input type="string" class="form-control" id="column" placeholder="e.g. courses_dept,courses_id">
+
+    <label for="order">Order (If item more than one, split by ',' and in order):</label>
+    <input type="string" class="form-control" id="order" placeholder="e.g. courses_pass,courses_fail">
+
+    <label for="orderSort">Order Direction:</label>
+    <select class="custom-select" id = "orderSort">
+        <option selected></option>
+        <option value="DOWN">DOWN</option>
+        <option value="UP">UP</option>
+    </select>
+
+    <label>Group By:</label>
+    <select class="custom-select" id="group">
+        <option selected></option>
+        <option value="courses_id">Course Number</option>
+        <option value="2">Fail</option>
+        <option value="3">Average</option>
+    </select>
+
+
+    </form>
+    <button type = "submit" class="btn btn-primary" id = "btnQuerySubmit">Submit</button>
+
+</div>
+<br>
+
+<table class = "table table-bordered" id="tbl_result"></table>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="../public/courses.js"></script>
+</body>

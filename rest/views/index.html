@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <style type = "text/css">
+        h1{
+            font-family: monospace;
+        }
+        .heading{
+            font-family: monospace;
+        }
+        #heading1{
+            color: blue;
+            font-family: sans-serif;
+        }
+        div{
+            text-align: center;
+
+        }
+        textarea{
+            height: 300px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id = "heading1" class = "heading">D4 Tutorial</h1>
+    <input type="file" name = "fileUpload" id="fileUpload"/>
+    <button id = "btnUpload">Upload</button>
+
+    <div>
+        <textarea id = "txtQuery"></textarea><br />
+        <button id = "btnSubmit">Submit</button>
+        <table id="tbl_result"></table>
+    </div>
+
+    <div>
+        <table id="tblResults">
+
+        </table>
+    </div>
+    <script>
+        $("#btnUpload").click(function(){
+            var fileToLoad = document.getElementById("fileUpload").files[0];    //get element by id
+            var fileReader = new FileReader();                                  //read into content of file
+            fileReader.readAsArrayBuffer(fileToLoad);
+            fileReader.onload = function (evt) {
+                var id = fileToLoad.name.split('.')[0];
+                var content = evt.target.result;
+                var formData = new FormData();
+                formData.append('body', new Blob ([content]));
+
+                $.ajax({
+                    url: 'http://localhost:4321/dataset/' +id,
+                    type: 'put',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                }).done(function(data){
+                    console.log(fileToLoad.name + ' was sucessfully uploaded.');
+                }).fail(function (data) {
+                    console.log('ERROR - Failed to upload '+ fileToLoad.name + ".");
+                })
+            }
+        });
+
+        $("#btnSubmit").click(function(){
+            var query = $("#txtQuery").val();
+            console.log("query", query);
+
+            $.ajax({
+                url: 'http://localhost:4321/query',
+                type: "post",
+                data: query,
+                dataType: 'json',
+                contentType: 'application/json'
+            }).done(function(data1){
+                console.log("Response",data1);
+                generateTable(data1.result);
+            }).fail(function (){
+                console.log("ERROR - Failed to submit query");
+            })
+        });
+
+        function generateTable(data){
+            var myNode = document.getElementById("tblResults");
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.firstChild);
+            }
+
+            var tbl_body = document.createElement("tbody");
+            var odd_even = false;
+            console.log("DATA", data);
+            $.each(data,function(){
+                var tbl_row = tbl_body.insertRow();
+                tbl_row.className = odd_even ? "odd" : "even";
+                $.each(this, function (k,v){
+                    var cell = tbl_row.insertCell();
+                    cell.appendChild(document.createTextNode(v.toString()))
+                })
+                odd_even = !odd_even;
+            })
+            document.getElementById("tblResults").appendChild(tbl_body)
+        }
+    </script>
+</body>
+</html>

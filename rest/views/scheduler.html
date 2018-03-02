@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UBC Navigator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/styles.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-inverse navbar-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">UBC Explorer</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                <a class= "nav-link" href="/views/courses.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Courses Navigator<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/rooms.html">Rooms Navigator</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/views/scheduler.html">Courses Room Scheduler</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/space.html">Novel Feature</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div>
+    <h1> Course Scheduling...</h1>
+    <div class = "container">
+        <div class ="row">
+            <div class = "col-md-6">
+                <br>
+                <label for="extraFilterC">Options for Multi Field Search:</label>
+                <select class="custom-select" id = "extraFilterC">
+                    <option selected  value="AND">AND</option>
+                    <option value="OR">OR</option>
+                </select>
+                <br>
+
+                <label for="department">Department:</label>
+                <input type="string" class="form-control formarray" id="department" placeholder="e.g. cpsc">
+                <label for="coursenum">Course Number:</label>
+                <input type="string" class="form-control formarray" id="coursenum" placeholder="e.g. 300">
+                <button type = "submit" class="btn btn-primary" id = "btnQueryCourse">Filter Courses</button>
+            </div>
+
+            <div class = "col-md-6">
+                <br>
+                <label for="extraFilterC">Options for Multi Field Search:</label>
+                <select class="custom-select" id = "extraFilterR">
+                    <option selected  value="AND">AND</option>
+                    <option value="OR">OR</option>
+                </select>
+                <br>
+                <label for="buildingName">Building Name:</label>
+                <select id = "buildingName">
+                    <option value="Acute Care Unit">Acute Care Unit</option>
+                    <option value="Allard Hall (LAW)">Allard Hall (LAW)</option>
+                    <option value="Anthropology and Sociology">Anthropology and Sociology</option>
+                    <option value="Aquatic Ecosystems Research Laboratory">Aquatic Ecosystems Research Laboratory</option>
+                    <option value="Asian Centre">Asian Centre</option>
+                    <option value="Audain Art Centre">Audain Art Centre</option>
+                    <option value="Auditorium">Auditorium</option>
+                    <option value="Auditorium Annex">Auditorium Annex</option>
+                    <option value="B.C. Binnings Studio">B.C. Binnings Studio</option>
+                    <option value="Biological Sciences">Biological Sciences</option>
+                    <option value="Brock Hall Annex">Brock Hall Annex</option>
+                    <option value="Buchanan">Buchanan</option>
+                    <option value="Buchanan Tower">Buchanan Tower</option>
+                    <option value="C. K. Choi Building for The Institute of Asian Res">C. K. Choi Building for The Institute of Asian Res</option>
+                    <option value="Centre for Interactive Research on Sustainability	">Centre for Interactive Research on Sustainability	</option>
+                    <option value="Chan Centre">Chan Centre</option>
+                    <option value="Chemical and Biological Engineering Building">Chemical and Biological Engineering Building</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Civil and Mechanical Engineering">Civil and Mechanical Engineering</option>
+                    <option value="D.H. Copp">D.H. Copp</option>
+                    <option value="David Lam Management Research Centre">David Lam Management Research Centre</option>
+                    <option value="Detwiller Pavilion">Detwiller Pavilion</option>
+                    <option value="Dorothy Somerset Studio">Dorothy Somerset Studio</option>
+                    <option value="Douglas Kenny">Douglas Kenny</option>
+                    <option value="Earth and Ocean Sciences - Main">Earth and Ocean Sciences - Main</option>
+                    <option value="Earth Sciences Building">Earth Sciences Building</option>
+                    <option value="Food, Nutrition and Health">Food, Nutrition and Health</option>
+                    <option value="Forest Sciences Centre">Forest Sciences Centre</option>
+                    <option value="Frank Forward">Frank Forward</option>
+                    <option value="Fred Kaiser">Fred Kaiser</option>
+                    <option value="Frederic Lasserre">Frederic Lasserre</option>
+                    <option value="Frederic Wood Theatre">Frederic Wood Theatre</option>
+                    <option value="Friedman Building">Friedman Building</option>
+                    <option value="Geography">Geography</option>
+                    <option value="George Cunningham">George Cunningham</option>
+                    <option value="Hebb">Hebb</option>
+                    <option value="Hennings">Hennings</option>
+                    <option value="Henry Angus">Henry Angus</option>
+                    <option value="Horticulture Building">Horticulture Building</option>
+                    <option value="Hugh Dempster Pavilion">Hugh Dempster Pavilion</option>
+                    <option value="Institute for Computing (ICICS/CS)">Institute for Computing (ICICS/CS)</option>
+                    <option value="Iona Building">Iona Building</option>
+                    <option value="Irving K Barber Learning Centre">Irving K Barber Learning Centre</option>
+                    <option value="J.B. MacDonald">J.B. MacDonald</option>
+                    <option value="Jack Bell Building for the School of Social Work">Jack Bell Building for the School of Social Work</option>
+                    <option value="Leonard S. Klinck">Leonard S. Klinck</option>
+                    <option value="Life Sciences Centre">Life Sciences Centre</option>
+                    <option value="MacLeod">MacLeod</option>
+                    <option value="MacMillan">MacMillan</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Mathematics Annex">Mathematics Annex</option>
+                    <option value="Medical Sciences Block C">Medical Sciences Block C</option>
+                    <option value="Michael Smith Laboratories">Michael Smith Laboratories</option>
+                    <option value="Music">Music</option>
+                    <option value="Neville Scarfe">Neville Scarfe</option>
+                    <option value="Orchard Commons">Orchard Commons</option>
+                    <option value="Pharmaceutical Sciences Building">Pharmaceutical Sciences Building</option>
+                    <option value="Ponderosa Annex E">Ponderosa Annex E</option>
+                    <option value="Ponderosa Commons: Oak House">Ponderosa Commons: Oak House</option>
+                    <option value="Ponderosa Office Annex F">Ponderosa Office Annex F</option>
+                    <option value="Ponderosa Office Annex H">Ponderosa Office Annex H</option>
+                    <option value="Robert F. Osborne Centre">Robert F. Osborne Centre</option>
+                    <option value="School of Population and Public Health">School of Population and Public Health</option>
+                    <option value="Sing Tao">Sing Tao</option>
+                    <option value="Student Recreation Centre">Student Recreation Centre</option>
+                    <option value="The Leon and Thea Koerner University Centre">The Leon and Thea Koerner University Centre</option>
+                    <option value="Theatre-Film Production Building">Theatre-Film Production Building</option>
+                    <option value="Theatre-Film Production Building Annex">Theatre-Film Production Building Annex</option>
+                    <option value="War Memorial Gymnasium">War Memorial Gymnasium</option>
+                    <option value="Wayne and William White Engineering Design Centre">Wayne and William White Engineering Design Centre</option>
+                    <option value="Wesbrook">Wesbrook</option>
+                    <option value="West Mall Annex">West Mall Annex</option>
+                    <option value="West Mall Swing Space">West Mall Swing Space</option>
+                    <option value="Woodward (Instructional Resources Centre-IRC)">Woodward (Instructional Resources Centre-IRC)</option>
+                </select>
+                <label for="distance">Find rooms by distance (km):</label>
+                <div class="row">
+                    <div class = "col">
+                        <select id = "disbuilding" >
+                            <option value="Acute Care Unit">Acute Care Unit</option>
+                            <option value="Allard Hall (LAW)">Allard Hall (LAW)</option>
+                            <option value="Anthropology and Sociology">Anthropology and Sociology</option>
+                            <option value="Aquatic Ecosystems Research Laboratory">Aquatic Ecosystems Research Laboratory</option>
+                            <option value="Asian Centre">Asian Centre</option>
+                            <option value="Audain Art Centre">Audain Art Centre</option>
+                            <option value="Auditorium">Auditorium</option>
+                            <option value="Auditorium Annex">Auditorium Annex</option>
+                            <option value="B.C. Binnings Studio">B.C. Binnings Studio</option>
+                            <option value="Biological Sciences">Biological Sciences</option>
+                            <option value="Brock Hall Annex">Brock Hall Annex</option>
+                            <option value="Buchanan">Buchanan</option>
+                            <option value="Buchanan Tower">Buchanan Tower</option>
+                            <option value="C. K. Choi Building for The Institute of Asian Res">C. K. Choi Building for The Institute of Asian Res</option>
+                            <option value="Centre for Interactive Research on Sustainability	">Centre for Interactive Research on Sustainability	</option>
+                            <option value="Chan Centre">Chan Centre</option>
+                            <option value="Chemical and Biological Engineering Building">Chemical and Biological Engineering Building</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Civil and Mechanical Engineering">Civil and Mechanical Engineering</option>
+                            <option value="D.H. Copp">D.H. Copp</option>
+                            <option value="David Lam Management Research Centre">David Lam Management Research Centre</option>
+                            <option value="Detwiller Pavilion">Detwiller Pavilion</option>
+                            <option value="Dorothy Somerset Studio">Dorothy Somerset Studio</option>
+                            <option value="Douglas Kenny">Douglas Kenny</option>
+                            <option value="Earth and Ocean Sciences - Main">Earth and Ocean Sciences - Main</option>
+                            <option value="Earth Sciences Building">Earth Sciences Building</option>
+                            <option value="Food, Nutrition and Health">Food, Nutrition and Health</option>
+                            <option value="Forest Sciences Centre">Forest Sciences Centre</option>
+                            <option value="Frank Forward">Frank Forward</option>
+                            <option value="Fred Kaiser">Fred Kaiser</option>
+                            <option value="Frederic Lasserre">Frederic Lasserre</option>
+                            <option value="Frederic Wood Theatre">Frederic Wood Theatre</option>
+                            <option value="Friedman Building">Friedman Building</option>
+                            <option value="Geography">Geography</option>
+                            <option value="George Cunningham">George Cunningham</option>
+                            <option value="Hebb">Hebb</option>
+                            <option value="Hennings">Hennings</option>
+                            <option value="Henry Angus">Henry Angus</option>
+                            <option value="Horticulture Building">Horticulture Building</option>
+                            <option value="Hugh Dempster Pavilion">Hugh Dempster Pavilion</option>
+                            <option value="Institute for Computing (ICICS/CS)">Institute for Computing (ICICS/CS)</option>
+                            <option value="Iona Building">Iona Building</option>
+                            <option value="Irving K Barber Learning Centre">Irving K Barber Learning Centre</option>
+                            <option value="J.B. MacDonald">J.B. MacDonald</option>
+                            <option value="Jack Bell Building for the School of Social Work">Jack Bell Building for the School of Social Work</option>
+                            <option value="Leonard S. Klinck">Leonard S. Klinck</option>
+                            <option value="Life Sciences Centre">Life Sciences Centre</option>
+                            <option value="MacLeod">MacLeod</option>
+                            <option value="MacMillan">MacMillan</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Mathematics Annex">Mathematics Annex</option>
+                            <option value="Medical Sciences Block C">Medical Sciences Block C</option>
+                            <option value="Michael Smith Laboratories">Michael Smith Laboratories</option>
+                            <option value="Music">Music</option>
+                            <option value="Neville Scarfe">Neville Scarfe</option>
+                            <option value="Orchard Commons">Orchard Commons</option>
+                            <option value="Pharmaceutical Sciences Building">Pharmaceutical Sciences Building</option>
+                            <option value="Ponderosa Annex E">Ponderosa Annex E</option>
+                            <option value="Ponderosa Commons: Oak House">Ponderosa Commons: Oak House</option>
+                            <option value="Ponderosa Office Annex F">Ponderosa Office Annex F</option>
+                            <option value="Ponderosa Office Annex H">Ponderosa Office Annex H</option>
+                            <option value="Robert F. Osborne Centre">Robert F. Osborne Centre</option>
+                            <option value="School of Population and Public Health">School of Population and Public Health</option>
+                            <option value="Sing Tao">Sing Tao</option>
+                            <option value="Student Recreation Centre">Student Recreation Centre</option>
+                            <option value="The Leon and Thea Koerner University Centre">The Leon and Thea Koerner University Centre</option>
+                            <option value="Theatre-Film Production Building">Theatre-Film Production Building</option>
+                            <option value="Theatre-Film Production Building Annex">Theatre-Film Production Building Annex</option>
+                            <option value="War Memorial Gymnasium">War Memorial Gymnasium</option>
+                            <option value="Wayne and William White Engineering Design Centre">Wayne and William White Engineering Design Centre</option>
+                            <option value="Wesbrook">Wesbrook</option>
+                            <option value="West Mall Annex">West Mall Annex</option>
+                            <option value="West Mall Swing Space">West Mall Swing Space</option>
+                            <option value="Woodward (Instructional Resources Centre-IRC)">Woodward (Instructional Resources Centre-IRC)</option>
+                        </select>
+                        <select id = "range">
+                            <option value="GT">greater than</option>
+                            <option value="LT">less than</option>
+                            <option value="EQ">equal</option>
+                        </select>
+                        <input type="string" class="form-control" id="distance" placeholder="e.g. 500">
+                        <button type = "submit" class="btn btn-primary" id = "btnQueryRoom">Filter Rooms</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <button id = "btnSubmit">Submit</button>
+
+
+</div>
+
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="../public/schedule.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+h1{
+    font-family: monospace;
+}
+.heading{
+    font-family: monospace;
+}
+#heading1{
+    color: blue;
+    font-family: sans-serif;
+}
+
+textarea{
+    height: 300px;
+    width: 600px;
+}
+
+.jumbotron{
+    padding-top: 10px;
+}

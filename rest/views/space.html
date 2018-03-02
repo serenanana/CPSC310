@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UBC Navigator</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/styles.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-inverse navbar-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">InsightUBC</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+                <a class= "nav-link" href="/views/courses.html">Courses Navigator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/rooms.html">Rooms Navigator</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/views/scheduler.html">Courses Room Scheduler</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/views/space.html">Novel Feature<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class = "jumbotron">
+    <label for="section">Section Size:</label>
+    <input type="number" class="form-control" id="section" placeholder="e.g. 300">
+    <label for="department">Department:</label>
+    <input type="string" class="form-control" id="department" placeholder="e.g. cpsc">
+    <label for="coursenum">Course Number:</label>
+    <input type="string" class="form-control" id="coursenum" placeholder="e.g. 101">
+    <label for="instructor">Instructor:</label>
+    <input type="string" class="form-control" id="instructor" placeholder="e.g. Elisa">
+    <label for="title">Title:</label>
+    <input type="string" class="form-control" id="title" placeholder="e.g. Introduction to Computer Engineering">
+
+    <select class="custom-select">
+        <option selected>Order Items By</option>
+        <option value="1">Pass</option>
+        <option value="2">Fail</option>
+        <option value="3">Average</option>
+    </select>
+
+    <button type = "submit" class="btn btn-primary" id = "btnQuerySubmit">Submit</button>
+
+    <!--<label class="custom-file">-->
+    <!--<input type="file" id="fileUpload" class="custom-file-input" name = "fileUpload">-->
+    <!--<span class="custom-file-control"></span>-->
+    <!--</label>-->
+    <br>
+    <label class="custom-file">
+
+        <input type="file" name = "fileUpload" id="fileUpload"/>
+
+        <span class="custom-file-control"></span>
+    </label>
+    <button id = "btnUpload">Upload</button>
+    <textarea id = "txtQuery"></textarea>
+    <br>
+    <button type = "submit" class="btn btn-primary" id = "btnSubmit">Submit</button>
+    <table class = "table-hover" id="tbl_result"></table>
+</div>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="../public/courses.js"></script>
+</body>
+</html>
